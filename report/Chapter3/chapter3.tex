@@ -107,7 +107,7 @@ I have chosen to use stepper motors due to the ability to control the amount and
 \end{figure}
 
 \item Camera
-\\A camera could be used to detect objects in front of it using various image processing techniques.  This method is good because it can potentialy map a relatively large area in a single image.  On the other hand it requires more processing to do, which can be slow and result in having colided into an object or be stuck in a tight space before it has finished processing.  I could use a more powerful processor to overcome this but it adds complexity, cost and power consumption.
+\\A camera could be used to detect objects in front of it using various image processing techniques.  This method is good because it can potentialy map a relatively large area in a single image.  On the other hand it requires more processing to do, which can be slow and result in coliding into an object or being stuck in a tight space before the system has finished processing data from the camera.  I could use a more powerful processor to overcome this but it adds complexity, cost and power consumption.
 \begin{figure}[h]
 \centering
         \includegraphics[width=2.0in] {Images/camera.jpg}
@@ -115,17 +115,17 @@ I have chosen to use stepper motors due to the ability to control the amount and
         \label{Camera Module}
 \end{figure}
 
-\item Infra Red
-\\Used to detect distance from an object.  Am emiter and a reciever pair linked to work like the light dependant resistor but using infra red instead of normal visible light.  Depending on the intensity of infra red picked up be the reciever it can be used to determine the distance from the source of the reflection.  Ambient infra red can effect readings.
+\item Infrared
+\\Used to detect distance from an object.  An emiter and a receiver pair linked to work like the light dependent resistor but using infrared instead of normal visible light.  Depending on the intensity of infrared picked up by the reciever it can be used to determine the distance from the source of the reflection.  Ambient infrared can effect readings as there is infrared radiation emitted from the sun and is everywhere.  This extra radiation other than the amount emitted by the sensor is un-needed and unwanted and as such if it arrives at the reciever the readings will be inaccurate from those expected.
 \begin{figure}[h]
 \centering
         \includegraphics[width=2.0in] {Images/ir.jpg}
-        \caption{Infra Red Sensor - coolcomponents.co.uk}
-        \label{Infra Red Sensor}
+        \caption{Infrared Sensor - coolcomponents.co.uk}
+        \label{Infrared Sensor}
 \end{figure}
 
 \item Sonar
-\\Again an emiter systle approach.  It emits and ultrasonic wave to bounce off of whatever surface is in front of it.  The time taken from emiting the wave until recieving the wave detemrines how far away the object is.  This method comes with its drawbacks.  Due to how sound waves behave when they interact with the environment by bouncing off of it.  If the surface is angled or curved the sound can bounce away from the reciever, either not reaching it at all giving the possible false reading that there is nothing in front of it, or it could bounce off of multiple surfaces back to the reciever giving a false reading that an object is there but further away due to the sound taking longer than it should have to reach the reciever.
+\\Again an emitter style approach.  It emits an ultrasonic wave to bounce off of whatever surface is in front of it.  The time taken from emitting the wave until recieving the wave determines how far away the object is.  This method comes with its drawbacks.  Due to how sound waves behave when they interact with the environment by bouncing off of it.  If the surface is angled or curved the sound can bounce away from the reciever, either not reaching it at all giving the possible false reading that there is nothing in front of it, or it could bounce off of multiple surfaces back to the reciever giving a false reading that an object is there but further away due to the sound taking longer than it should have to reach the reciever.
 \begin{figure}[h]
 \centering
         \includegraphics[width=2.0in] {Images/sonar.jpg}
@@ -139,7 +139,7 @@ A combination of both sonar and infra red logicaly seems like a good idea.  One 
 The robot will need a controler, that connects the software to all the hardware.
 \begin{itemize}
 \item PIC
-\\Peripheral Interface Controller.  Very low cost microcontroller with a small easy to learn instruction set and support serial communication/re-programming.  They also come in a DIL package (dual in-line) making them easy to incorporate into through-hole printed circuit boards.
+\\Peripheral Interface Controller.  Very low cost microcontroller with a small easy to learn instruction set and support serial communication/re-programming.  They also come in a DIL package (dual in-line) making them easy to incorporate into through-hole printed circuit boards as the legs of the chips can fit through these holes and be soldered (held in place with a low melting point conductive metal alloy.) into place.
 \begin{figure}[h]
 \centering
         \includegraphics[width=2.0in] {Images/pic-chip.png}
@@ -148,7 +148,7 @@ The robot will need a controler, that connects the software to all the hardware.
 \end{figure}
 
 \item Arduino
-\\An open source hardware board that is cheap but not as cheap as a PIC.  These are very popular among hobbyists due to them being very easy to use and have a vast collection of community written libraries to interface with all different types of hardware.
+\\An open source hardware board that is cheap but not as cheap as a PIC.  These are very popular among hobbyists due to them being very easy to use and having a vast collection of community written libraries to interface with all different types of hardware.
 \\Arduino uses C or C++ programming language for development.
 \begin{figure}[h]
 \centering
@@ -158,7 +158,7 @@ The robot will need a controler, that connects the software to all the hardware.
 \end{figure}
 
 \item Netduino
-\\This is also an open source electronics prototyping platform but instead of being based on C and C++ it is based on the .Net Micro Framework which is Microsofts version of an embedded framework.
+\\This is also an open source electronics prototyping platform but instead of being based on C and C++ it is based on the .Net Micro Framework which is Microsoft's version of an embedded framework.
 \\These boards cost more than the Arduino and PIC, and have much less community support.
 \begin{figure}[h]
 \centering
@@ -168,7 +168,7 @@ The robot will need a controler, that connects the software to all the hardware.
 \end{figure}
 
 \item Motherboard
-\\A small motherboard that can be found in a home computer or a netbook/laptop.  These have the widest variety of applications.  It can support most operating systems and programming languages but come at the hefty price of power consumption.  Compared to microcontrollers, a full motherboard draws a very large amount of power to run.  Also they take far longer to power on due to running an operating system, unlike microcontrollers that have the code compiled down and run directly on the hardware itself.
+\\A small motherboard that can be found in a home computer or a netbook/laptop.  These have the widest variety of applications.  It can support most operating systems and programming languages but come at the hefty price of power consumption.  Compared to microcontrollers, a full motherboard draws a very large amount of power to run compared to the comsumption of a microcontroller.  Also they take far longer to power on due to running an operating system, unlike microcontrollers that have the code compiled down and run directly on the hardware itself.
 \\The cost of such boards is also very high as they are far more complex pieces of electronics.
 \begin{figure}[h]
 \centering
@@ -177,7 +177,7 @@ The robot will need a controler, that connects the software to all the hardware.
         \label{Atom Motherboard}
 \end{figure}
 \item Raspberry Pi
-\\The Raspberry Pi is a credit card sized computer that is an embedded platform for Linux and various other operating systems.  It is very cheap and runs much faster than most microcontrollers.  It does also have the downside of long startup times due to running an operating system on such a compact system.  Unlike normal motherboards this little board has some GPIO (general purpose input output) pins for interacting directly with various pieces of hardware like the microcontrollers do.
+\\The Raspberry Pi is a credit card sized computer that is an embedded platform for Linux and various other operating systems.  It is very cheap and runs much faster than most microcontrollers.  It does also have the downside of long startup times due to running a full desktop style operating system on such a compact board.  Unlike normal motherboards this little board has some GPIO (general purpose input output) pins for interacting directly with various pieces of hardware like the microcontrollers do.
 \begin{figure}[h]
 \centering
         \includegraphics[width=2.0in] {Images/rpi.jpeg}
@@ -188,14 +188,14 @@ The robot will need a controler, that connects the software to all the hardware.
 \end{itemize}
 
 \subsection{Power Source}
-As this robot is intended to move around freely, unhindered by power and data cables, the powersource cannot be supplied by a wall power outlet, it has to be self contained.  This means it will have to be a battery.  The battery will have to be several cells or a singe high output cell due to the size of motors intended.
-\\I will need as many Amp hours as possible for longer runtimes.  This could be achieved with several cells linked together ins eries (end to end) to increase voltage and/or linky more together in parrallel (side by side) to increase amp hours (runtime).
+As this robot is intended to move around freely, unhindered by power and data cables, the powersource cannot be supplied by a wall power outlet, it has to be self contained.  This means it will have to be a battery.  The battery will have to be several cells or a single high output cell due to the size of motors intended.
+\\I will need as many Amp hours as possible for longer runtimes.  This could be achieved with several cells linked together in series (end to end) to increase voltage and/or link more together in parrallel (side by side) to increase amp hours (runtime).
 \begin{itemize}
 \item Lithium Polymer
-\\LiPo batteries come in up to 11.2 volt packages, which is not quite high enough for some higher voltage motors which I may be using.  These batteries are much lighter than some other alternatives and are common in embedded devices.
+\\LiPo batteries come in up to 11.2 volt packages, which is not quite high enough for some higher voltage motors which I may be using such as the high end steppers.  These batteries are much lighter than some other alternatives and are common in embedded devices.
 
 \item Lead Acid
-\\A lead acid battery is a choice with a high output.  A single battery can output 12 volts and can be found in high amp hour packages compares to the lithium alternatives.  Due to needed a high power motor for the chassis already, a higher weight battery is not too much of an issue and provides the benefit of the higher power output.
+\\A lead acid battery is a choice with a high output.  A single battery can output 12 volts and can be found in high amp hour packages such as 1 - 40amp hours compared to the lithium alternatives which are around 0.1 - 4 amp hours.  Due to needed a high power motor for the chassis already, a higher weight battery is not too much of an issue and provides the benefit of the higher power output.
 \end{itemize}
 
 \section{Feedback Interface}
