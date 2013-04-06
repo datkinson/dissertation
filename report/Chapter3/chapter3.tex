@@ -86,6 +86,72 @@ I have chosen to use stepper motors due to the ability to control the amount and
 
 \end{itemize}
 A combination of both sonar and infra red logicaly seems like a good idea.  One can compensate for the others weaknesses.  Use the sonar to compensate for ambiant infra red and the infra red can be used to compensate for sonar bouncing around the environment.  Hopefully this will reduce the number of false readings produced.
-\section{User Interface}
+\subsection{Control}
+The robot will need a controler, that connects the software to all the hardware.
+\begin{itemize}
+\item PIC
+\\Peripheral Interface Controller.  Very low cost microcontroller with a small easy to learn instruction set and support serial communication/re-programming.  They also come in a DIL package (dual in-line) making them easy to incorporate into through-hole printed circuit boards.
+\begin{figure}[h]
+\centering
+        \includegraphics[width=2.0in] {Images/pic-chip.png}
+        \caption{PIC - circuitstoday.com}
+        \label{PIC}
+\end{figure}
 
-\section{Other relevant sections}
+\item Arduino
+\\An open source hardware board that is cheap but not as cheap as a PIC.  These are very popular among hobbyists due to them being very easy to use and have a vast collection of community written libraries to interface with all different types of hardware.
+\\Arduino uses C or C++ programming language for development.
+\begin{figure}[h]
+\centering
+        \includegraphics[width=2.0in] {Images/arduinouno-r3.jpg}
+        \caption{Arduino arduino.cc}
+        \label{Arduino}
+\end{figure}
+
+\item Netduino
+\\This is also an open source electronics prototyping platform but instead of being based on C and C++ it is based on the .Net Micro Framework which is Microsofts version of an embedded framework.
+\\These boards cost more than the Arduino and PIC, and have much less community support.
+\begin{figure}[h]
+\centering
+        \includegraphics[width=2.0in] {Images/netduino.png}
+        \caption{Netduino - netduino.com}
+        \label{Netduino}
+\end{figure}
+
+\item Motherboard
+\\A small motherboard that can be found in a home computer or a netbook/laptop.  These have the widest variety of applications.  It can support most operating systems and programming languages but come at the hefty price of power consumption.  Compared to microcontrollers, a full motherboard draws a very large amount of power to run.  Also they take far longer to power on due to running an operating system, unlike microcontrollers that have the code compiled down and run directly on the hardware itself.
+\\The cost of such boards is also very high as they are far more complex pieces of electronics.
+\begin{figure}[h]
+\centering
+        \includegraphics[width=2.0in] {Images/atom.jpg}
+        \caption{Atom Motherboard - intel.co.uk}
+        \label{Atom Motherboard}
+\end{figure}
+\item Raspberry Pi
+\\The Raspberry Pi is a credit card sized computer that is an embedded platform for Linux and various other operating systems.  It is very cheap and runs much faster than most microcontrollers.  It does also have the downside of long startup times due to running an operating system on such a compact system.  Unlike normal motherboards this little board has some GPIO (general purpose input output) pins for interacting directly with various pieces of hardware like the microcontrollers do.
+\begin{figure}[h]
+\centering
+        \includegraphics[width=2.0in] {Images/rpi.jpeg}
+        \caption{Raspberry Pi - raspberrypi.org}
+        \label{Raspberry Pi}
+\end{figure}
+
+\end{itemize}
+
+\subsection{Power Source}
+As this robot is intended to move around freely, unhindered by power and data cables, the powersource cannot be supplied by a wall power outlet, it has to be self contained.  This means it will have to be a battery.  The battery will have to be several cells or a singe high output cell due to the size of motors intended.
+\\I will need as many Amp hours as possible for longer runtimes.  This could be achieved with several cells linked together ins eries (end to end) to increase voltage and/or linky more together in parrallel (side by side) to increase amp hours (runtime).
+\begin{itemize}
+\item Lithium Polymer
+\\LiPo batteries come in up to 11.2 volt packages, which is not quite high enough for some higher voltage motors which I may be using.  These batteries are much lighter than some other alternatives and are common in embedded devices.
+
+\item Lead Acid
+\\A lead acid battery is a choice with a high output.  A single battery can output 12 volts and can be found in high amp hour packages compares to the lithium alternatives.  Due to needed a high power motor for the chassis already, a higher weight battery is not too much of an issue and provides the benefit of the higher power output.
+\end{itemize}
+
+\section{Feedback Interface}
+While operating the robot, if there is any unexpected behaviour it would be nice to have some form of interface to see what the robot thinks the environment looks like.  There cannot be any cables trailing from the robot to a laptop so a wireless solution would be good.
+\\All that is needed is a small microcontroller, a wireless module and a display.
+An Arduino Fio is a good fit as it is small, low powered, has both lithium polymer battery socket and an xbee wireless module socket built in.
+\\A small LCD (liquid crystal display) can be connected to the Arduino to display information it recieves.
+
