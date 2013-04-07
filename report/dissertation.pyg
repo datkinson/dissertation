@@ -1,0 +1,7 @@
+if(sensor_range < value)
+{
+	motors.turn(random);
+}else
+{
+	motors.forward(1);
+}
