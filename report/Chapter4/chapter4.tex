@@ -63,4 +63,42 @@ This seems to work quite well, it does drive forwards and it does turn when an o
 \end{figure}
 Another issue with the prototype robot is with the motors.  Even though I am supplying each motor with the same voltage they do not turn at the same speed, this is due to the lack of feedback with controlling them.  Also the fact that it is built from a very cheap kit is a probable reason for how uneven the speed of the motors is.  This all leads to the robot driving in a curve as opposed to the intended straight line, also contributing to the sensor problem of turning into an object putting it within the sensor blind spot.
 \section{MK-I}
+The next step is to build a version based on the design and using the things I have learnt from the prototype to improve it.
+\\First thing to do it build a sturdy chassis for all the systems to be mounted onto.  I bought several sheets of aluminium to but cut into a similar shape as the small red plastic prototype.
+\begin{figure}[h]
+\centering
+        \includegraphics[width=3.0in]  {Images/alu-sheet-2.jpg}
+        \caption{Aluminium Sheet}
+        \label{Aluminium Sheet}
+\end{figure}
+I chose this shape mainly because of how much I liked working with said prototype but also because that a curved front seemed logical for mounting an array of sensors to.
+\begin{figure}[h]
+\centering
+        \includegraphics[width=3.0in]  {Images/alu-cut-2.jpg}
+        \caption{Aluminium Sheet Cut}
+        \label{Aluminium Sheet Cut}
+\end{figure}
+\\Next is to think about how to mount the motors to this aluminium base plate. After measuring the size of the stepper motors I bought to use as part of the robots drive system I also purchased a strip of aluminium to be cut and shaped into a motor mount to be attached on the underside of the baseplate.
+\begin{figure}[h]
+\centering
+        \includegraphics[width=3.0in]  {Images/small-stepper.jpg}
+        \caption{Chosen Stepper Motor}
+        \label{Chosen Stepper Motor}
+\end{figure}
+\begin{figure}[h]
+\centering
+        \includegraphics[width=3.0in]  {Images/motor-mount-1.jpg}
+        \caption{Motor Mounts}
+        \label{Motor Mounts}
+\end{figure}
+\\These mounts are just the cut strips of aluminium that have been bent so that they form a 90 degree angle and holes drilled through them to accomodate the motor drive shaft and for screw holes to attach these mounts to the baseplate.
+\\Another alteration to the original design is the fact that I have chosen to use only two drive wheels instead of the four shown in the design document.  The reasoning for this was that it is easier to turn with just the two wheels as it will be able to almost turn on the spot rather than having to perform a multi directional turn, moving backwards and forwards turning a different direction for each just like how a driver would turn a car around in a tight space.
+\\Now that the design has been reduced from four drive motors down to only two it will need some other wheels to keep the robot stable.  A single rear caster wheel worked well for the prototype and if I went with two rear stabalising wheels then the car turning in a tight space issue would still apply and because of this a single wheel has been chosen.
+\\This wheel again has been mounted on a strip of aluminium bolted hanging over the rear end of the also aluminium baseplate.
+\begin{figure}[h]
+\centering
+        \includegraphics[width=3.0in]  {Images/baseplate-underside.jpg}
+        \caption{Baseplate Underside}
+        \label{Baseplate Underside}
+\end{figure}
 
