@@ -52,4 +52,11 @@ if(sensor_range < value)
 \caption{Prototype Code Exert}
 \label{Prototype Code Exert}
 \end{figure}
-
+This seems to work quite well, it does drive forwards and it does turn when an object comes in range of the infrared sensor.  This is the desired behaviour but there is a problem.  If the robot turns away from one object and into another, if that second object is too close by the time it comes in front of the sensor then it can not be seen by the sensor.  The sensor that I have fitted to the prototype has a maximum range of 150cm, but it also has a minimum range of 20cm meaning that is blind to any object closer than this minimum range.
+\\In the figure the red signifies the blind area of the sensor and the green is the visible area.  If the robot were to turn right to avoid the wall in front of it then it would colide with the other wall and not be able to detect it.
+\begin{figure}[h]
+\centering
+        \includegraphics[width=3.0in]  {Images/ir-demo.png}
+        \caption{Collision Illustration}
+        \label{Collision Illustration}
+\end{figure}
