@@ -93,6 +93,66 @@ Actuators are motors used for controlling movement of a system.
 \end{itemize}
 
 I have chosen to use stepper motors due to the ability to control the amount and speed of rotation with more accuracy than the alternatives.  Stepper motors do come in high torque version which may be needed for this project as the chassis is made of metal which is a much hevaier material.  A stepper motor could be using with a chassis of any of the materials mentioned, it may struggle with steel depending on how thick of a piece is used.  DC motos could also be used with all materials if in conjunction with a gearbox, but the additional system needed to measure and control the exact rotation of the wheels using this method puts me off of the idea.  Greater power but less accurate control.
+\subsection{Drive Type}
+There are various different ways to move a mass around.
+\begin{itemize}
+\item Wheels
+\\These are most conventional method of movement which are seen by most people every day.  Robots that use wheels to enable movement are often very stable and can be using in many configurations.
+	\begin{itemize}
+	\item Two Wheels
+	\\This is an unstable configuration which requires it to be in contant motion to maintain an upright possition.  Due to the center of gravity being directly in the middle underneath the axle a weight is often possitioned here to help keep it upright as well as a tilt sensor to help compensate.  Another way for a two wheels to be arranged would be like a bike where again it will need to be in constant motion to remain upright.
+
+	\item Three Wheels
+	\\Most commonly two drive wheels and a single free turning wheel for stablity.  To turn the wheels are either turned in the opposite direction of each other or in the same direction just as different speeds using the free turning wheel to stop it falling over or being pulled along the ground as long as the center of gravity if within the three wheels.
+
+	\item Four Wheels
+	\\All four wheels can have independant control for tank style movement.  This is harder to keep in a straight line due to having to try and keep all four wheels turning at the same speed otherwise risk being inefficient and also causing additional friction dragging one side back.  An advantage to having all four wheels operated independantly is that if using in conjunction with 'omni' wheels.  These wheels have rollers on them enabling then to traverse in a lateral direction if the front and back pair are rotated in the oposite direction of each other.
+\begin{figure}[h]
+\centering
+        \includegraphics[width=2.0in] {Images/mechanum.jpg}
+        \caption{Omni Wheel - sparkfun.com}
+        \label{Omni Wheel}
+\end{figure}
+	\\Car type configuration is also four wheels but only either the front or the back pair are powered and either the front of back pair are able to turn.  Both the wheels that are able to change direction and the powered drive wheels can be the same pair.  It will require some kind of servo system to turn the axis which is designated at the turning wheels.
+
+	\item More than Four Wheels
+	\\Very good for uneven terrain as each wheel can rise and fall independantly with less effect on the main structure.  These are far more complex to operate but if the terrain is very rocky then it may be the best choice.
+	\end{itemize}
+
+\item Tracks
+\\These are very stable and have the best tracktion compared to wheeled variants as long as the surface it is used on is not smooth, sand is a good place to use tracks due to the large surface area compared to wheels as they will not sink while wheels will.  Very high friction with the ground especialy when turned as it has to operate the tracks in the oposite direction of each other forcing its way around in a circle.
+\begin{figure}[h]
+\centering
+        \includegraphics[width=2.0in] {Images/wheel-track.jpg}
+        \caption{Tracks - robotcombat.com}
+        \label{Tracks}
+\end{figure}
+
+
+\item Legs
+\\These are the most uncommon of the movement types.  Due to the cost of developing systems using this type of movement and the overall complexity of controlling them.
+	\begin{itemize}
+	\item Single Leg
+	\\The most difficult to control due to having to balance its load upright and having to lean and 'hop' to move around.
+\begin{figure}[h]
+\centering
+        \includegraphics[width=2.0in] {Images/3d-hopper.jpeg}
+        \caption{3D One Legged Hopper - mit.edu}
+        \label{3D One Legged Hopper}
+\end{figure}
+	\item Two Legs
+	\\Extremely difficult to control and there are very few working practical aplications of a two legged robot.  The main issue for controllign this is keeping it upright and not overbalancing, also if knee type joins are added the complexity significantly increases.
+
+\begin{figure}[h]
+\centering
+        \includegraphics[width=4.0in] {Images/nao.jpg}
+        \caption{NAO - aldebaran-robotics.com}
+        \label{NAO}
+\end{figure}
+	\item More than Four Legs
+	\\Having more legs can increase stability.  This is because most of the legs can be firmly on the ground while the others are moving into their new position.  Turning can be more complicated to control than the walking already is.  The servos used to control each of these legs and all the joints the legs may have may need to be quite strong or at least have strong teeth as to no get strippe dunder the weight of whatever payload the robot may have on top of all of these legs.  This is based on how insects are contructed where their body is vastly bigger than its legs, and as such it has many legs to compensate for this and distribute the load.
+	\end{itemize}
+\end{itemize}
 
 \subsection{Sensors}
 
