@@ -4,6 +4,7 @@
 
 %It is more likely that things were more complex than you first thought. In particular, were there any problems or difficulties that you found during implementation that you had to address? Did such problems simply delay you or were they more significant? Your implementation might well be described in the same chapter as Problems (see below).
 
+\section{Prototype}
 It is a good idea to first build a basic prototype.  Building a prototype will quickly highlight the main flaws in the initial design.  This is not the same as the intended final version and in this case is not even the same materials as I have chosen.  It does however conform the basic design but is made from much cheaper sourced components.  I already had an Arduino Uno (the basic prototyping model) from my interest int he technology before I attended university, so this was an easy component to get ym hands on quickly and is perfect for a prototype.  I had no chassis built or any materials to make one so I found a cheap and easy to assemble one online at a hobbyist electronics retailer.  This kit also included some very small DC motors with gearboxes and wheels, very convenient little package.  The Arduino alonge with the chassis kit and a small infrared sensors, a 9 volt battery and some jumper wires and a ptorotype was put together in an afternoon.
 \begin{figure}[h]
 \centering
@@ -60,3 +61,6 @@ This seems to work quite well, it does drive forwards and it does turn when an o
         \caption{Collision Illustration}
         \label{Collision Illustration}
 \end{figure}
+Another issue with the prototype robot is with the motors.  Even though I am supplying each motor with the same voltage they do not turn at the same speed, this is due to the lack of feedback with controlling them.  Also the fact that it is built from a very cheap kit is a probable reason for how uneven the speed of the motors is.  This all leads to the robot driving in a curve as opposed to the intended straight line, also contributing to the sensor problem of turning into an object putting it within the sensor blind spot.
+\section{MK-I}
+
