@@ -11,8 +11,15 @@ Due to the embedded nature of this project, automated testing is very limited.  
 \subsection{Unit Tests}
 These are written to test each individual part fo the project.  This starts with testing if the code validates.  A compiler is used to test this and a compiler is another program that checks if code will actually work, not neccesarily for its intended purpose but just check that it does not have a major flaw that will stop the finished program from running at all and converts it into either a binary capable of being run as an executable program or into another language.  This compiled code is what will run on the hardware itself rather than through an interpreter which is another program that interprets what the code is trying to do and runs that.
 \\The next stage if unit tests is to check that the software for each individual hardware interaction works as expected.  This includes checking that when the code tells a motor to turn in a specific direction that it actually turns as it is told to.  A motor is laid out on a workbench, hooked up to the microcontroller and told to turn.  If it does as expected then the test will be considered as passed, otherwise it will be considered as failed and debugging will be required before running the tests again.
+\\Similar tests will be run on the sensors with then placed at set distance intervals from objects and tested to see if the recorded distance measured by the sensor is the same as the real world measurement specifies.
+\begin{figure}[h]
+\centering
+        \includegraphics[width=4.0in] {Images/ir-measure-2.jpg}
+        \caption{Infrared Distance Test}
+        \label{Infrared Distance Test}
+\end{figure}
 \subsection{User Interface Testing}
-
+The only user interface on the robot is a button to apply or cut off power tot he system and an activity readout over a serial communication line.  This communication can either be over a USB (universal serial bus) cable or over some form of wireless serial such as bluetooth or the xbee module I am using.
 \subsection{Stress Testing}
 
 \section{Integration Testing}
