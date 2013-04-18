@@ -437,6 +437,13 @@ This type of communication is commonly using in mobile telephones to enable such
 \end{figure}
 \item Zigbee
 These little wireless radios are perfect for small, low powered wireless projects.  They run on as little as 3.3 volts with an output of 1 milliwatt.  The downside is that it's data transfer rate is only around 250 killobits per second, just a quarter of the embedded wifi module.  The zigbee module more than makes up for the lack of data transfer with its increased range of up to 100 meters.  These are also one of the cheaper options costing around twenty dollars each.  These such modules are called xbee which is just an implementation of the zigbee protocol which is typically used for mesh networking but still works for single point to point communications.
+\begin{figure}[H]
+\centering
+        \includegraphics[width=3.0in] {Images/xbee.jpg}
+        \caption{Xbee Module - sparkfun.com}
+        \label{Xbee Module}
+\end{figure}
+
 \end{itemize}
 An Arduino Fio is a good fit as it is small, low powered, has both lithium polymer battery socket and an xbee wireless module socket built in making it the obvious choice for this type of device as most of the connection work has been done already just leaving the screen and a user input method to be added.
 \\A small LCD (liquid crystal display) can be connected to the Arduino to display information it receives over the integrated xbee socket.
