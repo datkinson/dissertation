@@ -140,10 +140,48 @@ The first component for the robot that I constructed with this printer is a moun
         \caption{Printed Mounting Plate}
         \label{Printed Mounting Plate}
 \end{figure}
-Eventually the printed mounting plate will be attached to the base plate with bolts but at this stage of development it is just help in place with adhesive tape.  There is a prototyping breadboard used for the h-bridge motor driver also fixed in place with the adhesive tape. With the drive wheels attached to the motors and mounted to the base plate, the rear caster wheel set in place, the Arduino microcontroller and the motor driver breadboard taped to the base plate it was ready to test the drive system.
+Eventually the printed mounting plate will be attached to the base plate with bolts but at this stage of development it is just help in place with adhesive tape.  There is a prototyping breadboard used for the h-bridge motor driver also fixed in place with the adhesive tape. With the drive wheels attached to the motors and mounted to the base plate, the rear caster wheel set in place, the Arduino microcontroller, the motor driver breadboard taped to the base plate and the motors wired up it was ready to test the drive system.  It would be wise to note that at this point in the project the power source is not on board the robot as it had not yet arrived from the supplier, and so I was using a desktop computer power supply connected to a wall outlet and using long leads to link the robot power rails to the 12 volt line on the power supply.
 \begin{figure}[H]
 \centering
         \includegraphics[width=5.0in]  {Images/tria-mkII.jpg}
         \caption{Completed MK-I}
         \label{Completed MK-I}
 \end{figure}
+\subsection{MK-I Evaluation}
+It successfully drives itself forward in a straight line.  It does this very slowly and seems to struggle to do so with the motors seeming to jitter somewhat.  However it does move a set distance of one meter very reliably.  If the power supply has available and was fitted to the chassis I doubt the drive system would function as reliably as it is, or even move the robot at all.
+\\The robot has a hard time turning reliably.  It does turn a significant amount but at the start of each turn it vibrates, obviously struggling to shift it's weight but does then start to turn.  This will be a problem when any additional weight is added on top of the chassis and not all of the components are fitted yet.
+\section{MK-II}
+The power supply had still not arrived at this point and I had planned on building on the previous version by addressing the issue of the current drive system, but without the correct components of the right size and weight there was little point in pursuing this until the parts were available.  This iteration of the design will focus on the sensor system.
+\\As the supplier I had placed my parts orders with had been having some unknown issues meeting their order commitments, at this point in the project I had still not received the bulk of the components that I had ordered.  This means that I still only had a single infrared sensor available to use.  There was no point in wasting time and waiting for these orders to be fulfilled and I moved straight onto using sonar as I had a pair of ultrasonic sensors.
+\\These sensors are mounted by plugging their pins into a small prototyping breadboard each and connected to the microcontroller with jumper wires.  Instead of having the sensors facing directly forwards and due to the fact that only two were available I mounted them at an angle so each sensor can detect objects in a different region in front of the robot.  Unfortunately this means that anything small enough that is directly in front of the robot will not be detected by the sensors.
+\begin{figure}[H]
+\centering
+        \includegraphics[width=2.0in]  {Images/sonar-placement.png}
+        \caption{Sonar Configuration}
+        \label{Sonar Configuration}
+\end{figure}
+This configuration would enable the robot to turn right or left depending on which sensor detected an object close to it.  Now that the robot could collect sensor data it was time to build the feedback interface that was previously mentioned so that I could check what the robot thinks its sensors are telling it without having to follow the robot around with a laptop and a long cable.
+\subsection{Feedback Interface}
+The fact that I wanted this to be small, compact and portable meant that using a breadboard to link the components together would not conform to that criteria and as such I connected the components directly together with solder and wires.
+An Arduino Fio connected to the back of a 16 x 2 character liquid crystal display, with an xbee wireless module fitted into the modules slot on the Arduino unit as well as four buttons and a power switch glued to the base of the display for user interaction.  A small lithium polymer battery if help in place between the wireless module and the socket on the Arduino.  And the final component to make it all work is a small voltage step up unit to convert the Arduino's 3.3 volt output up to the 5 volts that the display needs to operate correctly.
+\begin{figure}[H]
+\centering
+        \includegraphics[width=4.0in]  {Images/mobile-board.png}
+        \caption{Feedback Interface}
+        \label{Feedback Interface}
+\end{figure}
+This device just receives information sent from the robot about the values the sonar sensors are providing.
+Each line of the display shows what distance each sensor thinks an object is away from itself.  I had written a small menu system on the device so that the user can check how long it has been running for, what the current sensor readings are and to even be able to manually control the drive system of the robot.
+With the purpose of the device being that or portability I decided it needed to not be difficult to hold, as it was at this point because of the electronics being exposed.  It was then sewn into a glove so that it could be used hands free.  Having it inside a glove also protected the electronics from being interfered with.
+\begin{figure}[H]
+\centering
+        \includegraphics[width=4.0in]  {Images/wrist-device.jpg}
+        \caption{Wrist Device}
+        \label{Wrist Device}
+\end{figure}
+\subsection{MK-II Evaluation}
+At this point the robot does move, but very slowly and with some difficulty, this is an issue that still needed solving. The robot can also detect if an object is in front of either sonar sensor.
+\\The next step to improve on this iteration would be to enable the robot to turn to avoid an object that it has detected.
+\section{MK-III}
+This iteration was a short one due to the fact that the ordered parts had still not arrived from the supplier there was not much that could be done.  The only changed made to this version was in the software.  These changes were adding code that enabled the robot to change direction when approaching an obstacle.
+First was to decide on a threshold value for when to trigger the robots decision to turn.  This was accomplished via trial and error, where I would set a default value and see if the robot actually avoided the obstruction.  This default value was the distance from the center of the robot to the outer edge of the wheel, the logic being that this is the minimum amount of space the robot would need to be able to turn in.

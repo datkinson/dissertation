@@ -1,7 +1,8 @@
 /*
 Author: Daniel Atkinson
 Version: 1.1
-Controlling stepper motors based on sonar sensor readings in a reactive way
+Controlling stepper motors based on sonar sensor readings in a
+reactive way
 */
 #include <Stepper.h>
 #define sonar1TrigPin 8

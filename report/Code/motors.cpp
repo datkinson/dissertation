@@ -1,6 +1,7 @@
 //full rotation diveded by degrees turned per step
 const int fullTurn = 360/1.8;
-//Make a motor object using the stepper library on the correct pins
+//Make a motor object using the stepper library on
+the correct pins
 Stepper motorL(fullTurn, 40,41,42,43);
 Stepper motorR(fullTurn, 50,51,52,53);
 

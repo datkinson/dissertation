@@ -1,5 +1,11 @@
 \chapter{Third-Party Code and Libraries}
 
 %If you have made use of any third party code or software libraries, i.e. any code that you have not designed and written yourself, then you must include this appendix. As has been said in lectures, it is acceptable and likely that you will make use of third-party code and software libraries. The key requirement is that we understand what is your original work and what work is based on that of other people. Therefore, you need to clearly state what you have used and where the original material can be found. Also, if you have made any changes to the original versions, you must explain what you have changed.
-The main piece of thrid party software that I used is the Arduino integrated development environment.  This is a software package used to write programs, compile them and deploy them onto the arduino microcontroller series.
-\\This software includes a collection of libraries to be used withe the arduino hardware to aid in the development of programs for it.  The only one of these libraries I use is for serial communication fo the sensor data base to a human readable terminal.
+\subsection{Arduino}
+The main piece of third party software that I used is the Arduino integrated development environment.  This is a software package used to write programs, compile them and deploy them onto the Arduino microcontroller series.
+\\This software includes a collection of libraries to be used with the Arduino hardware to aid in the development of programs for it.  The only one of these libraries I use is for serial communication of the sensor data base to a human readable terminal.
+
+\subsection{Ino}
+This is a command line toolkit for working with the Arduino hardware.  This software is distributed via Github and is released under the MIT licence.
+\\This software is incomplete and required a small amount of scripting to get it working with my project.  It was only used as a command line way of validating my code when I was working on the project without full access to the computer I was using and as such used a virtual private server I rent which is hosted at a remote location.  With this server I used to work on being in a remote location there was no screen to access, this made using the official Arduino software difficult to use and thus using this command line alternative was useful in this regard.
+\\Ino does require python 2.6+ and the Arduino software to be installed as well but does not require the Arduino IDE to be launched.
