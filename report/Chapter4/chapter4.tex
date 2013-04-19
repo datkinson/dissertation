@@ -185,3 +185,35 @@ At this point the robot does move, but very slowly and with some difficulty, thi
 \section{MK-III}
 This iteration was a short one due to the fact that the ordered parts had still not arrived from the supplier there was not much that could be done.  The only changed made to this version was in the software.  These changes were adding code that enabled the robot to change direction when approaching an obstacle.
 First was to decide on a threshold value for when to trigger the robots decision to turn.  This was accomplished via trial and error, where I would set a default value and see if the robot actually avoided the obstruction.  This default value was the distance from the center of the robot to the outer edge of the wheel, the logic being that this is the minimum amount of space the robot would need to be able to turn in.
+\\This turned out to not be enough due to how the robot struggles to move normally and when turning it has a harder time moving when turning.  The robot does not turn enough and drives at an angle into the obstacle it is trying to avoid.
+\\I just increased the threshold to make the robot try to turn when it is much further away from the detected obstacle.
+\subsection{MK-III Evaluation}
+The MK-III iteration has highlighted the fact that the project could not move much further forwards until the rest of the ordered parts have arrived.
+\\There is still the issue with the drive system not being strong enough to move the weight of the entire robot.
+\\The other issue with the current iteration is that the sensor threshold had been calibrated to accommodate for the lack of power in the drive system and as such it tried to avoid objects too far away.  This can make the robot miss gaps that are big enough to easily fit through.
+\begin{figure}[H]
+\centering
+        \includegraphics[width=4.0in]  {Images/sonar-range.png}
+        \caption{Sonar Range Gap}
+        \label{Sonar Range Gap}
+\end{figure}
+When the drive system is strong enough to make tighter turns the sonar range threshold can be re-calibrated to a much shorter distance and allow the robot to move inside much tighter spaces.
+
+\section{MK-IV}
+The supplier had fulfilled their orders by this time and I now had the parts that I needed.  After mounting the power supply onto the chassis in the form of a lead acid battery and some adhesive tape, I tested if the current drive system could still move with the extra weight.
+\\As it struggled to move when the power source was not on-board it was unlikely to cope any better when a heavy lead acid battery is added to the payload.  The robot no longer moves under it's own power apart from vibrating violently as the motors try to turn the wheels.
+\\The stepper motors I previously bought for the project did not have enough torque to move the weight of the full payload.  When this first came apparent I ordered a pair of stepper motors with a much higher holding torque rating of 125 oz.inch.
+\\These new motors are much bigger than the old ones which required me to make new motor mounts.  I made these mounts out of the excess aluminium strips I had left after making the first pair of motor mounts and designed them to use the same mounting holes as the first pair of mounts.
+\begin{figure}[H]
+\centering
+        \includegraphics[width=4.0in]  {Images/motor-compare.jpg}
+        \caption{New Motor Next to Old Motor}
+        \label{New Motor Next to Old Motor}
+\end{figure}
+These new motors can move the robot much much greater ease than the previous ones, even when trying to turn.  It can now turn in a much smaller space resulting in me being able to reduce the threshold on the sonar sensor settings.
+\subsection{MK-IV Evaluation}
+The MK-IV now moves with greater easy and can now turn faster so that it does not drive straight into walls.  It is now configured to avoid objects when it is closer to them.
+\\The new issue that has turned up with this iteration of the design is again with the drive system.  This time the h-bridge motor drivers overheat, this is due to the additional load that the new bigger motors draw from the system.  One of them actually burnt out even with a heat sink attached.
+\section{MK-V}
+The MK-V was focussed on resolving the latest drive system issue.  I tried adding some current limiting resistors which did reduce the temperate by a small amount but the motor drivers still ran too hot.
+\\I had then decided to implement a pre-built motor driver into the system, one which is not too expensive.  I found a suitable unit with standard spacing holes in the board which pins can be soldered through in order to fit into the breadboard that is already attached to the robot chassis baseplate for the previous motor driver.
