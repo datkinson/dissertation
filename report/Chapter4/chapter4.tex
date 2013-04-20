@@ -216,4 +216,35 @@ The MK-IV now moves with greater easy and can now turn faster so that it does no
 \\The new issue that has turned up with this iteration of the design is again with the drive system.  This time the h-bridge motor drivers overheat, this is due to the additional load that the new bigger motors draw from the system.  One of them actually burnt out even with a heat sink attached.
 \section{MK-V}
 The MK-V was focussed on resolving the latest drive system issue.  I tried adding some current limiting resistors which did reduce the temperate by a small amount but the motor drivers still ran too hot.
-\\I had then decided to implement a pre-built motor driver into the system, one which is not too expensive.  I found a suitable unit with standard spacing holes in the board which pins can be soldered through in order to fit into the breadboard that is already attached to the robot chassis baseplate for the previous motor driver.
+\\I had then decided to implement a pre-built motor driver into the system, one which is not too expensive.  I found a suitable unit with standard spacing holes in the board which pins can be soldered through in order to fit into the breadboard that is already attached to the robot chassis baseplate for the previous motor driver.  This unit is a Pololu motor driver that operates between 8 and 35 volts which is well within the voltage range of the robot's system.  The new motor driver can also supply 1.2 amps of current to each coil of the motor without the need for cooling, but with proper cooling it can supply up to 2 amps of current which is much more than the h-bridge drivers that had a maximum supply of 1 amp and overheated before that.
+\begin{figure}[H]
+\centering
+        \includegraphics[width=4.0in]  {Images/pololu-motor-driver.jpg}
+        \caption{Replacement Motor Driver}
+        \label{Replacement Motor Driver}
+\end{figure}
+With the old driver system I had to manually control the signals to each of the connections of each stepper motor, the new drivers only require a direction signal and a step pulse per motor.  The motor turns a step each time the step pin on the motor driver receives a signal pulse.  This system is less complex to control but has the downside of not being able to brake.  By this I mean that with the previous system I was able to supply current manually to all of the motor connection coils which would hold the motor in it's current position, but with the new drivers it manages the current to the motor coils itself and because of this I cannot specify if I want the motors holding their position rather than just not turning.
+\subsection{MK-V Evaluation}
+The MK-V robot now drives with greater reliability than previous iterations due to the combination of the bigger stepper motors and the new motor drive boards.
+\\The downsides to this iteration is that it can no longer actively brake and it still only uses two sonar sensors to detect obstacles, this means that it still suffers from the cons of using sonar to detect range.
+
+\section{MK-VI}
+The MK-VI iteration focused on adding infrared sensors to accompany the sonar sensors.  As previously mentioned in the design section, it was always intended that sonar and infrared would be used together to decrease the number of false readings produced by the sensor system.
+The infrared sensors suffer from ambient infrared radiation giving them false readings.  The sonar sensors suffer from echo where the sounds bounces more than once before coming back to the receiver and thus gives a distance reading indicating the object is at a greater distance from the sensor that it actually is in reality.
+As the two different types of sensors suffer from different issues the objective is that if one sensor gives a reading that is too far different than the other sensor it is paired with then the robot will discard that reading and request a new set of readings from the sensor pair before making a decision if it should move or not.
+\\The sensors were just placed on the front of the robot chassis to begin with, this is for testing purposes.  Sonar sensors are already plugged into small breadboards and the infrared sensors are placed underneath the sonars against the side of the small breadboards.
+\begin{figure}[H]
+\centering
+        \includegraphics[width=4.0in]  {Images/mk-vi.jpg}
+        \caption{MK-VI Robot}
+        \label{MK-VI Robot}
+\end{figure}
+After placing the sensors on the robot I then had to write the code that gathers the sensor data, compares each pair to check if there are any major differences in their readings.  If there are any differences above a threshold value then discard the readings and take a new set.  Once an acceptable set of readings have been taken the robot will use the already existing decision code to determine which direction for the drive system to move the robot in.
+To test this new code I put the robot up on blocks so that the wheels did not move the robot, then I put an object at different distances from each sensor in each pair.  This worked very well as the system kept requesting new sensor readings until I moved the objects to roughly the same distance away.
+\\The 3D printer was used again to make the sensor mounts which are then attached to the robot chassis and house a sensor in each.
+\begin{figure}[H]
+\centering
+        \includegraphics[width=4.0in]  {Images/printed-sensor-mounts.jpg}
+        \caption{Printed Sensor Mounts}
+        \label{Printed Sensor Mounts}
+\end{figure}
